@@ -1,0 +1,62 @@
+<head>
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="generator" content="{{ site.generator }}" />
+  <meta name="description" content="{% if page.excerpt %}{{ page.content | strip_html | strip_newlines | truncatewords: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  <meta property="og:type" content="article" />
+  {% if page.url %}
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {% endif %}
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.content | strip_html | strip_newlines | truncatewords: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  {% if page.image %}
+  <meta property="og:image" content="{{ site.url }}/assets/image/{{ page.image }}" />
+  {% else %}
+  <meta property="og:image" content="{{ site.url }}/assets/profile.jpg" />
+  {% endif %}
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="article:author" content="https://www.facebook.com/{{ site.facebook_username }}" />
+  <meta property="article:publisher" content="https://www.facebook.com/{{ site.facebook_username }}" />
+  <meta itemprop="headline" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
+  <meta itemprop="description" content="{% if page.excerpt %}{{ page.content | strip_html | strip_newlines | truncatewords: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  {% if page.image %}
+  <meta itemprop="image" content="{{ site.url }}/assets/image/{{ page.image }}" />
+  {% else %}
+  <meta itemprop="image" content="{{ site.url }}/assets/profile.jpg" />
+  {% endif %}
+  {% if page.url %}
+  <meta itemprop="url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {% endif %}
+  <meta itemprop="datePublished" content="{{ page.date | date: "%Y-%m-%d" }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}" />
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.content | strip_html | strip_newlines | truncatewords: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  {% if page.image %}
+  <meta name="twitter:image" content="{{ site.url }}/assets/image/{{ page.image }}" />
+  {% else %}
+  <meta name="twitter:image" content="{{ site.url }}/assets/profile.jpg" />
+  {% endif %}
+  <!--[if lt IE 9]>
+  <script src="{{ "/js/html5.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+  <![endif]-->
+  <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ "/favicon.ico" | prepend: site.baseurl | prepend: site.url }}" >
+  <link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+  <link rel='stylesheet' id='genericons-css'  href="{{ "/genericons/genericons.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
+  <link rel='stylesheet' id='twentyfifteen-style-css' href="{{ "/css/style.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
+  <link rel='stylesheet' href="{{ "/css/syntax.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' />
+  <!--[if lt IE 9]>
+  <link rel='stylesheet' id='twentyfifteen-ie-css' href="{{ "css/ie.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
+  <![endif]-->
+  <!--[if lt IE 8]>
+  <link rel='stylesheet' id='twentyfifteen-ie7-css'  href="{{ "css/ie7.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
+  <![endif]-->
+  <script type='text/javascript' src="{{ "/js/jquery/jquery.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+  <script type='text/javascript' src="{{ "/js/jquery/jquery-migrate.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+</head>

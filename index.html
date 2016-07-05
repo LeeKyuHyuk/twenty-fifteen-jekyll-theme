@@ -1,0 +1,51 @@
+---
+layout: default
+---
+{% for post in site.posts limit:1 %}
+<article class="post type-post status-publish format-standard hentry">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark">{{ post.title }}</a>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>{{ post.content }}</p>
+  </div>
+  <footer class="entry-footer">
+    <span class="posted-on">
+      <span class="screen-reader-text">작성일자 </span>
+      <a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark">
+        <time class="entry-date published" datetime="{{ post.date }}">{{ post.date | date: "%Y년 %-m월 %-d일" }}</time>
+        <time class="updated" datetime="{{ post.date }}">{{ post.date | date: "%Y년 %-m월 %-d일" }}</time>
+      </a>
+    </span>
+    <span class="cat-links">
+      <span class="screen-reader-text">카테고리 </span>
+      <a href="/category/{{ post.category | slugify | prepend: site.baseurl }}.html" rel="category">{{ post.category | replace:'-', ' ' }}</a>
+    </span>
+  </footer>
+</article>
+<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">글 내비게이션</h2>
+		<div class="nav-links">
+      {% if post.previous.url %}
+      <div class="nav-previous">
+        <a href="{{ post.previous.url }}" rel="prev">
+          <span class="meta-nav" aria-hidden="true">이전</span>
+          <span class="screen-reader-text">이전 글:</span>
+          <span class="post-title">{{ post.previous.title }}</span>
+        </a>
+      </div>
+      {% endif %}
+      {% if post.next.url %}
+      <div class="nav-next">
+        <a href="{{ post.next.url }}" rel="next">
+          <span class="meta-nav" aria-hidden="true">다음</span>
+          <span class="screen-reader-text">다음 글:</span>
+          <span class="post-title">{{ post.next.title }}</span>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+</nav>
+{% endfor %}

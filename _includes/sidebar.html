@@ -1,0 +1,73 @@
+<div id="sidebar" class="sidebar">
+  <header id="masthead" class="site-header" role="banner">
+    <div class="site-branding">
+      <h1 class="site-title">
+        <a href="{{ site.url }}" rel="home">{{ site.title }}</a>
+      </h1>
+      <p class="site-description">{{ site.description }}</p>
+      <button class="secondary-toggle">메뉴와 위젯</button>
+    </div>
+  </header>
+  <div id="secondary" class="secondary">
+    <div id="widget-area" class="widget-area" role="complementary">
+      <aside class="widget widget_search">
+        <form role="search" method="get" class="search-form" action="search.html">
+          <label>
+            <span class="screen-reader-text">검색:</span>
+            <input type="search" class="search-field" placeholder="검색 &hellip;" value="" name="s" title="검색:" />
+          </label>
+          <input type="submit" class="search-submit screen-reader-text" value="검색" />
+        </form>
+      </aside>
+      <aside class="widget widget_categories">
+        <h2 class="widget-title">카테고리</h2>
+        <ul>
+          <li>
+            <a href="{{ "/category.html" | prepend: site.baseurl }}" >모든 글 보기</a>
+          </li>
+          {% assign categories = site.categories | sort %}
+           {% for category in categories %}
+            <li>
+               <a href="/category/{{ category | first | slugify | prepend: site.baseurl }}.html">
+                       {{ category[0] | replace:'-', ' ' }}
+               </a>
+           </li>
+           {% endfor %}
+        </ul>
+      </aside>
+      <aside class="widget widget_recent_entries">
+        <h2 class="widget-title">최근 글</h2>
+        <ul>
+          {% for post in site.posts limit:10 %}
+          <li>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </aside>
+      <aside class="widget widget_meta">
+        <h2 class="widget-title">그 밖의 기능</h2>
+        <ul>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="mailto:{{ site.email }}">E-mail</a>
+          </li>
+          <li>
+            <a href="https://github.com/{{ site.github_username }}">Github</a>
+          </li>
+          <li>
+            <a href="https://facebook.com/{{ site.facebook_username }}">Facebook</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a>
+          </li>
+          <li>
+            <a href="{{ "/feed.xml" | prepend: site.baseurl }}">Subscribe <abbr title="Really Simple Syndication">via RSS</abbr></a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
