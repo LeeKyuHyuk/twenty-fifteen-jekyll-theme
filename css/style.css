@@ -210,6 +210,7 @@ body,
 button,
 input,
 select,
+optgroup,
 textarea {
 	color: #333;
 	font-family: "Noto Serif", serif;
